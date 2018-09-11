@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center">
+        <span class="fa fa-fire"></span>Matchmaker</h1>
+      <hr>
+      <h2 class="text-center">Your Match</h2>
+      <br>
+      <div class="text-center">
+        <a href="/friends">
+          <button class="btn btn-lg btn-primary">
+            <span class="fa fa-list-alt"></span> View People</button>
+        </a>
+        <a href="/">
+          <button class="btn btn-lg btn-default">
+            <span class="fa fa-home"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      
+      <div class="col-lg-12">
+
+        <div class="card" style="width: 18rem;margin: 0 auto;">
+            <img class="card-img-top" src="" alt="Card image cap">
+            <div class="card-body">
+                <p id="matchName" class="card-text"></p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <footer class="footer">
+        <div class="container">
+        <p><a href="/api/friends">People</a> | <a href="/api/match">API Match</a>
+        </div>
+    </footer>
+</div>
+
+
+<script type="text/javascript">
+    $.ajax({ url: "/api/match", method: "GET" })
+      .then(function(matchListData) {
+        $("#matchName").text(matchListData[0].Name);
+        $("img").attr("src",matchListData[0].Pic);
+      });
+</script>

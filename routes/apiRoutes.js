@@ -4,8 +4,8 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var tableData = require("../data/tableData");
-var waitListData = require("../data/waitinglistData");
+var friendsData = require("../data/friendsData");
+var matchListData = require("../data/matchListData");
 
 
 // ===============================================================================
@@ -20,11 +20,11 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.get("/api/friends", function(req, res) {
-    res.json(tableData);
+    res.json(friendsData);
   });
 
-  app.get("/api/waitlist", function(req, res) {
-    res.json(waitListData);
+  app.get("/api/match", function(req, res) {
+    res.json(matchListData);
   });
 
   // API POST Requests
@@ -39,14 +39,19 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body-parser middleware
-    if (tableData.length < 5) {
-      tableData.push(req.body);
-      res.json(true);
-    }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
-    }
+
+      friendsData.push(req.body);
+      return res.json(friendsData);
+      
+  });
+
+  app.post("/api/match", function(req, res) {
+    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
+    // It will do this by sending out the value "true" have a table
+    // req.body is available since we're using the body-parser middleware
+
+      matchListData=[req.body];
+      return res.json(matchListData);
   });
 
   // ---------------------------------------------------------------------------
@@ -55,8 +60,8 @@ module.exports = function(app) {
 
   app.post("/api/clear", function(req, res) {
     // Empty out the arrays of data
-    tableData.length = [];
-    waitListData.length = [];
+    friendsData.length = [];
+    matchListData.length = [];
 
     res.json({ ok: true });
   });

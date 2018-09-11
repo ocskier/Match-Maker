@@ -6,6 +6,7 @@
 var path = require("path");
 
 var quests = require("../data/questions");
+var match = require("../data/matchListData");
 
 var exphbs = require("express-handlebars");
 
@@ -30,6 +31,12 @@ module.exports = function(app) {
   app.get("/questions", function(req, res) {
 
     res.render("questions",{quests});
+
+  });
+
+  app.get("/match", function(req, res) {
+
+    res.render("match",match[0]);
 
   });
 
