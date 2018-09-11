@@ -31,6 +31,18 @@
             <div class="col">
               <input id="lastName" type="text" class="form-control" placeholder="Last name">
             </div>
+            {{!-- <div class="custom-file" style="margin:20px 0;">
+              <input type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label" for="customFile">Choose Pic</label>
+            </div> --}}
+            <br><br>
+            <label for="basic-url">Your Profile Pic</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">https://example.com/myPic.jpg/</span>
+              </div>
+              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            </div>
           </div>
           <br>
           <button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
@@ -79,6 +91,11 @@
   // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
   // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
+  {{!-- $("#customFile").change(function() {
+    filename = this.files[0].name
+    $(".custom-file-label").text(filename);
+  });  --}}
+
   $("#add-btn").on("click", function(event) {
     event.preventDefault();
 
@@ -90,6 +107,7 @@
     }
     var newFriend = {
       Name: $("#firstName").val().trim()+" "+$("#lastName").val().trim(),
+      Pic: $("#basic-url").val(),
       Answers: answers
     };
 
