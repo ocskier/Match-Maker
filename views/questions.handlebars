@@ -1,52 +1,63 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Match Maker</h1>
+      <div class="row center justify-content-center" style="font-size: 1.4rem;">Add your Profile</h5>
+      </div>
+      <div class="row center justify-content-center">
+        <a href="/friends" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-right: 20px">People</a>
+        <a href="/" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-left: 20px"><span class="fa fa-home"></span></a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
 
 
   <div class="container">
+    <div class="section">
 
-    <div class="jumbotron">
-      <h1 class="text-center">
-        <span class="fa fa-fire"></span>Matchmaker</h1>
-      <hr>
-      <h2 class="text-center">Add your Profile</h2>
-      <br>
-      <div class="text-center">
-        <a href="/friends">
-          <button class="btn btn-lg btn-primary">
-            <span class="fa fa-list-alt"></span> View People</button>
-        </a>
-        <a href="/">
-          <button class="btn btn-lg btn-default">
-            <span class="fa fa-home"></span>
-          </button>
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      
+      <!--   Icon Section   -->
+      <div class="row">
       <div class="col-lg-6">
-        <form>
-          <div class="row">
-            <div class="col">
-              <input id="firstName" type="text" class="form-control" placeholder="First name">
-            </div>
-            <div class="col">
-              <input id="lastName" type="text" class="form-control" placeholder="Last name">
-            </div>
-            {{!-- <div class="custom-file" style="margin:20px 0;">
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose Pic</label>
-            </div> --}}
-            <br><br>
-            <label for="basic-url">Your Profile Pic</label>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon3">https://example.com/myPic.jpg/</span>
+        <div class="card">
+          <form style="margin: 0 auto;padding: 5px;">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <input id="firstName" type="text" class="form-control" placeholder="First name" style="border: 1px solid blue;padding: 0 0 0 5px;">
               </div>
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <div class="col-6">
+                <input id="lastName" type="text" class="form-control" placeholder="Last name" style="border: 1px solid blue;padding: 0 0 0 5px;">
+              </div>
+              {{!-- <div class="custom-file" style="margin:20px 0;">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose Pic</label>
+              </div> --}}
+              <br><br>
+              <label for="basic-url" style="margin-top: 20px;font-size: 1.2rem;">Your Profile Pic</label>
+              <div class="input-group mb-3" style="justify-content: center;">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">https://example.com/myPic.jpg/</span>
+                </div>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" style="margin: 0 15px;">
+              </div>
             </div>
-          </div>
-          <br>
-          <button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
-        </form>
+            <br>
+            <button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
+          </form>
+        </div>
       </div>
       
       <div class="col-lg-6">
@@ -72,15 +83,39 @@
       </div>
       
     </div>
-
-
-    <footer class="footer">
-      <div class="container">
-        <p>
-          <a href="/api/friends">API Table Link</a> |
-          <a href="/api/match">API Match</a>
       </div>
-    </footer>
+ <br><br>
+    </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a href="/api/friends" class="white-text">API Table Link</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a href="/api/match" class="white-text">API Match</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
 
   </div>
 

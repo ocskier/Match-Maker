@@ -1,73 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Tables Page</title>
-
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Tables Page</title>
+  
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/javascript/materialize.js"></script>
+    <script src="assets/javascript/init.js"></script>
+  
+  </head>
 
 <body>
 
-  <div class="container">
-
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="fa fa-fire"></span> Matchmaker</h1>
-      <hr>
-      <h2 class="text-center">Roster</h2>
-      <br>
-
-      <div class="text-center">
-        <a href="/questions"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Add a Profile</button></a>
-        <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
+  <nav class="light-blue lighten-1" role="navigation">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+  
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12">
-
-        <div class="card mt-4">
-          <div class="card-header">
-            <h4>Your Match</h4>
-          </div>
-          <div class="card-body">
-            <ul id="matchList" class="list-group"></ul>
-          </div>
-        </div>
-
-        <!-- Current Tables in Use -->
-        <div class="card">
-          <div class="card-header">
-            <h4>Available</h4>
-          </div>
-          <div class="card-body">
-            <ul id="tableList" class="list-group"></ul>
-          </div>
-        </div>
-
-        <!-- Waiting List Card -->
-      </div>
-    </div>
-
-
-    <footer class="footer mt-4">
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
       <div class="container">
-        <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/friends">API Table Link</a> | <a href="/api/match">API
-            Match</a>
+        <br><br>
+        <h1 class="header center orange-text">Match Maker</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Roster</h5>
+        </div>
+        <div class="row center justify-content-center">
+          <a href="/questions" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-left: 10px">Add A Profile</a>
+          <a href="/" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-left: 20px"><span class="fa fa-home"></span></a>
+        </div>
+        <br><br>
+  
       </div>
-    </footer>
+  </div>
+    
+    
+  <div class="container">
+    <div class="section">
 
+      <!--   Icon Section   -->
+      <div class="row">
+
+        <div class="col s12 m4">
+            <h5 class="center">Your Match</h5>
+            <div id="matchList" class="card medium" style="width:50%;margin:0 auto;">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <h4 class="center">Available</h4>
+              <div id="tableList">
+                </div>
+          </div>
+      </div>
+
+    </div>
+    <br><br>
   </div>
 
-</body>
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students</p>
 
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a href="/api/friends" class="white-text">API Table Link</a></li>
+            <li><a href="#" id="clear">Clear Table</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a href="/api/match" class="white-text">API Match</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
 <script type="text/javascript">
@@ -91,16 +131,24 @@
           // Get a reference to the tableList element and populate it with tables
           var tableList = $("#tableList");
 
-          // Then display the fields in the HTML (Section Name, Date, URL)
-          var listItem = $("<li class='list-group-item mt-4'>");
+          var friendCardDiv = $('<div class="card small" style="width:25%;margin:0 auto;float:left">');
 
-          listItem.append(
-            $("<hr>"),
-            $('<h2>').text(friendsData[i].Name),
-            $('<img style="width:240px; height:240px">').attr("src", friendsData[i].Pic)
+          // Then display the fields in the HTML (Section Name, Date, URL)
+          var friendImgDiv = $('<div class="card-image waves-effect waves-block waves-light">');
+
+          friendImgDiv.append(
+            $('<img class="activator">').attr("src", friendsData[i].Pic).attr("style","height:160px")
+            );
+
+          var friendContentDiv = $('<div class="card-content">');
+          
+          friendContentDiv.append(
+            $('<span class="card-title activator grey-text text-darken-4">'+friendsData[i].Name+'</span>')
           );
 
-          tableList.append(listItem);
+          
+          friendCardDiv.append(friendImgDiv,friendContentDiv);
+          tableList.append(friendCardDiv);
         }
 
       });
@@ -122,30 +170,43 @@
           var matchList = $("#matchList");
 
           // Then display the fields in the HTML (Section Name, Date, URL)
-          var listItem = $("<li class='list-group-item mt-4'>");
+          var matchImgDiv = $('<div class="card-image waves-effect waves-block waves-light">');
 
-          listItem.append(
-            $("<hr>"),
-            $("<h2>").text(matchData[0].Name),
-            $('<img style="width:240px; height:240px">').attr("src", matchData[0].Pic)
+          matchImgDiv.append(
+            $('<img class="activator">').attr("src", matchData[0].Pic)
+            );
+
+          var matchContentDiv = $('<div class="card-content">');
+          
+          matchContentDiv.append(
+            $('<span class="card-title activator grey-text text-darken-4">'+matchData[0].Name+'<i class="material-icons right">more_vert</i></span>'),
+            $('<p><a href="#">This is a link</a></p>')
           );
 
-          matchList.append(listItem);
+          var matchRevealDiv = $('<div class="card-reveal">');
+
+          matchRevealDiv.append(
+            $('<span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>'),
+            $('<p>'+matchData[0].Answers+'</p>')
+          );
+          
+          matchList.append(matchImgDiv,matchContentDiv,matchRevealDiv);
+            
         });
   }
 
   // This function resets all of the data in our tables. This is intended to let you restart a demo.
-  function clearTable() {
-    alert("Clearing...");
+  // function clearTable() {
+  //   alert("Clearing...");
 
-    // Clear the tables on the server and then empty the elements on the client
-    $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
-      $("#waitList").empty();
-      $("#tableList").empty();
-    });
-  }
+  //   // Clear the tables on the server and then empty the elements on the client
+  //   $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+  //     $("#waitList").empty();
+  //     $("#tableList").empty();
+  //   });
+  // }
 
-  $("#clear").on("click", clearTable);
+  // $("#clear").on("click", clearTable);
 
 
   // Run Queries!
