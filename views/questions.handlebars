@@ -165,6 +165,7 @@
           }
           if (nextScore<lowScore) {
             lowScore=nextScore;
+            localStorage.setItem("Score",lowScore);
             newMatch = friendsData[i];
           }
           nextScore=0;

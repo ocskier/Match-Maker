@@ -35,6 +35,7 @@
             <img class="card-img-top" src="" alt="Card image cap">
             <div class="card-body">
                 <p id="matchName" class="card-text"></p>
+                <p id="matchScore" class="card-text"></p>
             </div>
         </div>
       </div>
@@ -80,4 +81,6 @@
         $("#matchName").text(matchListData[0].Name);
         $("img").attr("src",matchListData[0].Pic);
       });
+     $("#matchScore").text("Compatibility Score: "+localStorage.getItem("Score"));
+
 </script>
