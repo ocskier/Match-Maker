@@ -1,11 +1,11 @@
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+<nav class="deep-purple lighten-1" role="navigation" style="height: 80px">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="assets/images/love-logo-hi.png" style="width:48px"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="#" style="line-height: 80px;">Link</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="#">Link</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -13,12 +13,12 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Match Maker</h1>
+      <h1 class="header center">Match Maker</h1>
       <div class="row center justify-content-center" style="font-size: 1.4rem;">Add your Profile</h5>
       </div>
       <div class="row center justify-content-center">
-        <a href="/friends" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-right: 20px">People</a>
-        <a href="/" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-left: 20px"><span class="fa fa-home"></span></a>
+        <a href="/friends" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin-right: 20px">People</a>
+        <a href="/" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin-left: 20px"><span class="fa fa-home"></span></a>
       </div>
       <br><br>
 
@@ -55,7 +55,27 @@
               </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-primary" id="add-btn">Submit</button>
+            <button type="submit" class="btn btn-primary deep-purple lighten-1" id="add-btn">Submit</button>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                  <h4 style="text-align: center">Your Match!</h4>
+                  <div id="matchCard" class="card small z-depth-5" style="width:50%;margin:0 auto">
+                    <div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">
+                      <img class="activator">
+                    </div>
+                    <div class="card-content" style="max-height: 22%;">
+                      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>
+                    </div>         
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Proceed</a>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -87,7 +107,7 @@
  <br><br>
     </div>
 
-  <footer class="page-footer orange">
+  <footer class="page-footer deep-purple lighten-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -131,14 +151,16 @@
     $(".custom-file-label").text(filename);
   });  --}}
 
+
   $("#add-btn").on("click", function(event) {
     event.preventDefault();
 
     // Here we grab the form elements
-    
+
     var answers = [];
     for (i=0;i<10;i++) {
-      answers.push($("#"+i).val());
+      var answer = parseInt($("#"+i).val());
+      answers.push(answer);
     }
     var newFriend = {
       Name: $("#firstName").val().trim()+" "+$("#lastName").val().trim(),
@@ -171,28 +193,34 @@
           nextScore=0;
         }
 
+        $('.modal').modal({onCloseEnd:function() {
+          window.location.href="/friends";
+          }});
+
         $.post("/api/match", newMatch,
           function(data) {
 
             if (data) {
-              alert("Yay! You have a match!");
-              window.location.href="/match";
+              console.log(1);
+              $.post("/api/friends", newFriend, function(data) {
+                  if (data) {
+                    console.log(2);
+                    $.ajax({ url: "/api/match", method: "GET" })
+                      .then(function(matchListData) {
+                        $("#matchCard .card-image img").attr("src",matchListData[0].Pic);
+                        $("#matchCard .card-content span").append(matchListData[0].Name);
+                        $("#matchCard .card-reveal span").append('<br>'+matchListData[0].Answers+'<br><br>').append("Compatibilty Score: "+localStorage.getItem("Score"));
+                      });
+                    var instance = M.Modal.getInstance($('#modal1'));
+                    instance.open();
+                  }
+              });
             }
         
         });
       });
-
-    $.post("/api/friends", newFriend,
-      function(data) {
-
-        if (data) {
-          alert("Yay! You have been added do the date list!");
-        }
-
-      });
     
   });
-
 
   var el, newPoint, newPlace, offset;
  

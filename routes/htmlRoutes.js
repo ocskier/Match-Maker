@@ -34,12 +34,6 @@ module.exports = function(app) {
 
   });
 
-  app.get("/match", function(req, res) {
-
-    res.render("match",match[0]);
-
-  });
-
   // If no matching route is found default to home
   app.get("*", function(req, res) {
     res.render("index",quests);

@@ -23,14 +23,14 @@
 
 <body>
 
-  <nav class="light-blue lighten-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+  <nav class="deep-purple lighten-1" role="navigation" style="height: 80px">
+      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="assets/images/love-logo-hi.png" style="width:48px"></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#" style="line-height: 80px;">Link</a></li>
         </ul>
   
         <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
+          <li><a href="#">Link</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
@@ -38,13 +38,13 @@
   <div class="section no-pad-bot" id="index-banner">
       <div class="container">
         <br><br>
-        <h1 class="header center orange-text">Match Maker</h1>
+        <h1 class="header center">Match Maker</h1>
         <div class="row center">
           <h5 class="header col s12 light">Roster</h5>
         </div>
         <div class="row center justify-content-center">
-          <a href="/questions" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-left: 10px">Add A Profile</a>
-          <a href="/" id="download-button" class="btn-large waves-effect waves-light orange" style="margin-left: 20px"><span class="fa fa-home"></span></a>
+          <a href="/questions" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin-left: 10px">Add A Profile</a>
+          <a href="/" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin-left: 20px"><span class="fa fa-home"></span></a>
         </div>
         <br><br>
   
@@ -59,24 +59,25 @@
       <div class="row">
 
         <div class="col s12 m4">
-            <h5 class="center">Your Match</h5>
-            <div id="matchList" class="card medium" style="width:50%;margin:0 auto;">
+            <div id="matchList">
             </div>
         </div>
       </div>
       <div class="row">
-          <div class="col">
+          <div class="col-1"></div>
+          <div class="col-10">
               <h4 class="center">Available</h4>
               <div id="tableList">
                 </div>
           </div>
+          <div class="col-1"></div>
       </div>
 
     </div>
     <br><br>
   </div>
 
-  <footer class="page-footer orange">
+  <footer class="page-footer deep-purple lighten-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -131,13 +132,13 @@
           // Get a reference to the tableList element and populate it with tables
           var tableList = $("#tableList");
 
-          var friendCardDiv = $('<div class="card small" style="width:25%;margin:0 auto;float:left">');
+          var friendCardDiv = $('<div class="card small z-depth-3" style="width:31%;float:left;margin:8px;text-align:center">');
 
           // Then display the fields in the HTML (Section Name, Date, URL)
-          var friendImgDiv = $('<div class="card-image waves-effect waves-block waves-light">');
+          var friendImgDiv = $('<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">');
 
           friendImgDiv.append(
-            $('<img class="activator">').attr("src", friendsData[i].Pic).attr("style","height:160px")
+            $('<img class="activator">').attr("src", friendsData[i].Pic).attr("style","height:200px")
             );
 
           var friendContentDiv = $('<div class="card-content">');
@@ -169,14 +170,16 @@
           // Get a reference to the waitList element and populate it with tables
           var matchList = $("#matchList");
 
+          var matchCardDiv = $('<div class="card medium z-depth-5" style="width:50%;margin:0 auto">');
+
           // Then display the fields in the HTML (Section Name, Date, URL)
-          var matchImgDiv = $('<div class="card-image waves-effect waves-block waves-light">');
+          var matchImgDiv = $('<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">');
 
           matchImgDiv.append(
             $('<img class="activator">').attr("src", matchData[0].Pic)
             );
 
-          var matchContentDiv = $('<div class="card-content">');
+          var matchContentDiv = $('<div class="card-content" style="max-height: 22%;">');
           
           matchContentDiv.append(
             $('<span class="card-title activator grey-text text-darken-4">'+matchData[0].Name+'<i class="material-icons right">more_vert</i></span>'),
@@ -187,10 +190,12 @@
 
           matchRevealDiv.append(
             $('<span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>'),
-            $('<p>'+matchData[0].Answers+'</p>')
+            $('<p>'+matchData[0].Answers+'</p>'),
+            $('<p>Compatibilty Score: '+localStorage.getItem("Score")+'</p>')
           );
-          
-          matchList.append(matchImgDiv,matchContentDiv,matchRevealDiv);
+
+          matchCardDiv.append(matchImgDiv,matchContentDiv,matchRevealDiv);
+          matchList.append($('<h2 class="center">Your Match</h5>'),matchCardDiv);
             
         });
   }
