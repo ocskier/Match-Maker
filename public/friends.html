@@ -161,43 +161,47 @@
     $.ajax({ url: "/api/match", method: "GET" })
       .then(function(matchData) {
 
-        // Here we then log the waitlistData to console, where it will show up as an object.
-        console.log(matchData);
-        console.log("------------------------------------");
+        function writeMatchHTML () {
+          // Here we then log the waitlistData to console, where it will show up as an object.
+          console.log(matchData);
+          console.log("------------------------------------");
 
-        // Loop through and display each of the customers
+          // Loop through and display each of the customers
 
-          // Get a reference to the waitList element and populate it with tables
-          var matchList = $("#matchList");
-        
-          var matchCardDiv = $('<div class="card medium z-depth-5" style="width:50%;margin:0 auto">');
+            // Get a reference to the waitList element and populate it with tables
+            var matchList = $("#matchList");
+          
+            var matchCardDiv = $('<div class="card medium z-depth-5" style="width:50%;margin:0 auto">');
 
-          // Then display the fields in the HTML (Section Name, Date, URL)
-          var matchImgDiv = $('<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">');
+            // Then display the fields in the HTML (Section Name, Date, URL)
+            var matchImgDiv = $('<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">');
 
-          matchImgDiv.append(
-            $('<img class="activator">').attr("src", matchData[0].Pic)
+            matchImgDiv.append(
+              $('<img class="activator">').attr("src", matchData[0].Pic)
+              );
+
+            var matchContentDiv = $('<div class="card-content" style="max-height: 22%;">');
+            
+            matchContentDiv.append(
+              $('<span class="card-title activator grey-text text-darken-4">'+matchData[0].Name+'<i class="material-icons right">more_vert</i></span>'),
+              $('<p><a href="#">This is a link</a></p>')
             );
 
-          var matchContentDiv = $('<div class="card-content" style="max-height: 22%;">');
-          
-          matchContentDiv.append(
-            $('<span class="card-title activator grey-text text-darken-4">'+matchData[0].Name+'<i class="material-icons right">more_vert</i></span>'),
-            $('<p><a href="#">This is a link</a></p>')
-          );
+            var matchRevealDiv = $('<div class="card-reveal">');
 
-          var matchRevealDiv = $('<div class="card-reveal">');
+            matchRevealDiv.append(
+              $('<span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>'),
+              $('<p>'+matchData[0].Answers+'</p>'),
+              $('<p>Compatibilty Score: '+localStorage.getItem("Score")+'</p>')
+            );
 
-          matchRevealDiv.append(
-            $('<span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>'),
-            $('<p>'+matchData[0].Answers+'</p>'),
-            $('<p>Compatibilty Score: '+localStorage.getItem("Score")+'</p>')
-          );
+            matchCardDiv.append(matchImgDiv,matchContentDiv,matchRevealDiv);
+            matchList.append($('<h2 class="center">Your Match</h5>'),matchCardDiv);
+              
+          }
 
-          matchCardDiv.append(matchImgDiv,matchContentDiv,matchRevealDiv);
-          matchList.append($('<h2 class="center">Your Match</h5>'),matchCardDiv);
-            
-        });
+          matchData[0] ? writeMatchHTML() : null
+        })
   }
 
   // This function resets all of the data in our tables. This is intended to let you restart a demo.
