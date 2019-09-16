@@ -35,3 +35,9 @@ margin-top: -1px;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+@media screen and (max-width: 568px) {
+  #tableList .card{
+    min-width: 285px !important;
+  }
+}
