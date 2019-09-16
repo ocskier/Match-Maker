@@ -29,3 +29,9 @@ left: 50%;
 margin-left: -5px;
 margin-top: -1px;
 }
+
+#tableList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
