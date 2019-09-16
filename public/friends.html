@@ -31,8 +31,8 @@
         <ul id="nav-mobile" class="sidenav">
           <li>Site Map</li>
           <hr>
-          <li><a href="/"></a></li>
-          <li><a href="/friends">Roster</a></li>
+          <li><a href="/">Site Map</a></li>
+          <li><a href="/friends">Community</a></li>
           <li><a href="/questions">Profile</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -43,7 +43,7 @@
         <br><br>
         <h1 class="header center">Match Maker</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Roster</h5>
+          <h5 class="header col s12 light">Community</h5>
         </div>
         <div class="row center justify-content-center">
           <a href="/questions" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin-left: 10px">Add A Profile</a>
@@ -107,7 +107,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made using <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
   </footer>
@@ -120,6 +120,16 @@
   // In this code, jQuery is used to "download" the data from our server
   // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
   // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+
+  (function ($) {
+    $(function () {
+
+      $('.sidenav').sidenav();
+
+      M.AutoInit();
+
+    }); // end of document ready
+  })(jQuery); // end of jQuery name space
 
   function runFriendsQuery() {
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
