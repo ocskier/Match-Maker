@@ -110,7 +110,25 @@
       </div>
     </div>
   </footer>
-
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4 style="text-align: center">Send <span id="modalFriendName"></span> A Chat Invite?</h4>
+        <div id="chatCard" class="card small z-depth-5" style="width:50%;margin:0 auto">
+          <div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">
+            <img class="">
+          </div>
+          <div class="card-content center" style="max-height: 22%;">
+            <span class="card-title grey-text text-darken-4"><a class="activator btn btn-small">Request Chat?</a></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Chat<i class="material-icons right">close</i></span>
+          </div>         
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Proceed</a>
+    </div>
+  </div>
 </body>
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
@@ -152,7 +170,7 @@
 
           friendImgDiv.append(
             $('<img class="activator responsive-img">').attr("src", friendsData[i].Pic).attr("style","height:200px"),
-            $('<a class="btn-floating halfway-fab waves-effect waves-light red" style="right:5px;bottom:5px;background-color:lightblue !important"><i class="material-icons">add</i></a>')
+            $(`<a id="friendbtn-${i}" class="btn-floating halfway-fab waves-effect waves-light red" onclick="getModal('${friendsData[i].Name}')" style="right:5px;bottom:5px;background-color:lightblue !important"><i class="material-icons">add</i></a>`)
             );
 
           var friendContentDiv = $('<div class="card-content">');
@@ -171,6 +189,13 @@
         }
 
       });
+  }
+
+  function getModal (name) {
+    console.log(name);
+    $("#modalFriendName").text(name);
+    var instance = M.Modal.getInstance($('#modal2'));
+    instance.open();
   }
 
   function runMatchQuery() {
