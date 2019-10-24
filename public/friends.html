@@ -1,272 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0"
+    />
     <title>Match Maker</title>
-  
+
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  
   </head>
 
-<body>
-
-  <nav class="deep-purple lighten-1" role="navigation" style="height: 80px">
-      <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><img src="assets/images/love-logo-hi.png" style="width:48px"></a>
+  <body>
+    <nav class="deep-purple lighten-1" role="navigation" style="height: 80px">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="/" class="brand-logo"
+          ><img src="assets/images/love-logo-hi.png" style="width:48px"
+        /></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="https://ocskier.github.io/JRJ-Folio/" style="line-height: 80px;">Portfolio</a></li>
+          <li>
+            <a
+              href="https://ocskier.github.io/JRJ-Folio/"
+              style="line-height: 80px;"
+              >Portfolio</a
+            >
+          </li>
         </ul>
-  
+
         <ul id="nav-mobile" class="sidenav">
           <li><a href="/">Home</a></li>
-          <hr>
+          <hr />
           <li><a href="/friends">Community</a></li>
           <li><a href="/questions">Profile</a></li>
         </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
       </div>
-  </nav>
-  <div class="section no-pad-bot" id="index-banner">
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
       <div class="container">
-        <br><br>
+        <br /><br />
         <h1 class="header center">Match Maker</h1>
         <div class="row center">
           <h5 class="header col s12 light">Community</h5>
         </div>
-        <div class="row center justify-content-center" style="display: flex; flex-wrap: wrap;">
-          <a href="/questions" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin: 1rem 0.5rem">Add A Profile</a>
-          <a href="/" id="download-button" class="btn-large waves-effect waves-light deep-purple lighten-4" style="margin: 1rem 0.5rem"><span class="fa fa-home"></span></a>
+        <div
+          class="row center justify-content-center"
+          style="display: flex; flex-wrap: wrap;"
+        >
+          <a
+            href="/questions"
+            id="download-button"
+            class="btn-large waves-effect waves-light deep-purple lighten-4"
+            style="margin: 1rem 0.5rem"
+            >Add A Profile</a
+          >
+          <a
+            href="/"
+            id="download-button"
+            class="btn-large waves-effect waves-light deep-purple lighten-4"
+            style="margin: 1rem 0.5rem"
+            ><span class="fa fa-home"></span
+          ></a>
         </div>
-        <br><br>
-  
+        <br /><br />
       </div>
-  </div>
-    
-    
-  <div class="container">
-    <div class="section">
+    </div>
 
-      <!--   Icon Section   -->
-      <div class="row">
-
-        <div class="col s12 m4">
-            <div id="matchList">
-            </div>
+    <div class="container">
+      <div class="section">
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 m4">
+            <div id="matchList"></div>
+          </div>
         </div>
-      </div>
-      <div class="row">
+        <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-              <h4 class="center">Available</h4>
-              <div id="tableList">
-                
-              </div>
+            <h4 class="center">Available</h4>
+            <div id="tableList"></div>
           </div>
           <div class="col-1"></div>
-      </div>
-
-    </div>
-    <br><br>
-  </div>
-
-  <footer class="page-footer deep-purple lighten-1">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">Copyright</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a href="/api/friends" class="white-text">API Table Link</a></li>
-            <li><a href="#" id="clear">Clear Table</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a href="/api/match" class="white-text">API Match</a></li>
-          </ul>
         </div>
       </div>
+      <br /><br />
     </div>
-    <div class="footer-copyright">
+
+    <footer class="page-footer deep-purple lighten-1">
       <div class="container">
-      Made using <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Company Bio</h5>
+            <p class="grey-text text-lighten-4">Copyright</p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Settings</h5>
+            <ul>
+              <li>
+                <a href="/api/friends" class="white-text">API Table Link</a>
+              </li>
+              <li><a href="#" id="clear">Clear Table</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+            <ul>
+              <li><a href="/api/match" class="white-text">API Match</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-        <h4 style="text-align: center">Send <span id="modalFriendName"></span> A Chat Invite?</h4>
-        <div id="chatCard" class="card small z-depth-5" style="width:50%;margin:0 auto">
-          <div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">
-            <img class="">
+      <div class="footer-copyright">
+        <div class="container">
+          Made using
+          <a class="orange-text text-lighten-3" href="http://materializecss.com"
+            >Materialize</a
+          >
+        </div>
+      </div>
+    </footer>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4 style="text-align: center">
+          Send <span id="modalFriendName"></span> A Chat Invite?
+        </h4>
+        <div
+          id="chatCard"
+          class="card small z-depth-5"
+          style="width:50%;margin:0 auto"
+        >
+          <div
+            class="card-image waves-effect waves-block waves-light"
+            style="max-height: 70%"
+          >
+            <img class="" />
           </div>
           <div class="card-content center" style="max-height: 22%;">
-            <span class="card-title grey-text text-darken-4"><a class="activator btn btn-small">Request Chat?</a></span>
+            <span class="card-title grey-text text-darken-4"
+              ><a class="activator btn btn-small">Request Chat?</a></span
+            >
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Chat<i class="material-icons right">close</i></span>
-          </div>         
+            <span class="card-title grey-text text-darken-4"
+              >Chat<i class="material-icons right">close</i></span
+            >
+          </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+          >Proceed</a
+        >
+      </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Proceed</a>
-    </div>
-  </div>
-</body>
+  </body>
 
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
-<script type="text/javascript">
+  <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
+  <script type="text/javascript">
+    // In this code, jQuery is used to "download" the data from our server
+    // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
+    // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
 
-  // In this code, jQuery is used to "download" the data from our server
-  // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
-  // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+    (function($) {
+      $(function() {
+        $(".sidenav").sidenav();
 
-  (function ($) {
-    $(function () {
+        M.AutoInit();
+      }); // end of document ready
+    })(jQuery); // end of jQuery name space
 
-      $('.sidenav').sidenav();
-
-      M.AutoInit();
-
-    }); // end of document ready
-  })(jQuery); // end of jQuery name space
-
-  function runFriendsQuery() {
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/friends", method: "GET" })
-      .then(function(friendsData) {
-
+    function runFriendsQuery() {
+      // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+      $.ajax({ url: "/api/friends", method: "GET" }).then(function(
+        friendsData
+      ) {
         // Here we then log the tableData to console, where it will show up as an object.
         console.log(friendsData);
         console.log("------------------------------------");
 
         // Loop through and display each of the customers
         for (var i = 0; i < friendsData.length; i++) {
-
           // Get a reference to the tableList element and populate it with tables
           var tableList = $("#tableList");
 
-          var friendCardDiv = $('<div class="card small z-depth-3 friendCard" style="min-width:165px;max-width:min-content;float:left;margin:8px;text-align:center">');
+          var friendCardDiv = $(
+            '<div class="card small z-depth-3 friendCard">'
+          );
 
           // Then display the fields in the HTML (Section Name, Date, URL)
-          var friendImgDiv = $('<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">');
+          var friendImgDiv = $(
+            '<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">'
+          );
 
           friendImgDiv.append(
-            $('<img class="activator responsive-img">').attr("src", friendsData[i].Pic).attr("style","height:200px"),
-            $(`<a id="friendbtn-${i}" class="btn-floating halfway-fab waves-effect waves-light red" onclick="getModal('${friendsData[i].Name}')" style="right:5px;bottom:5px;background-color:lightblue !important"><i class="material-icons">add</i></a>`)
-            );
+            $('<img class="activator responsive-img">')
+              .attr("src", friendsData[i].Pic)
+              .attr("style", "height:200px"),
+            $(
+              `<a id="friendbtn-${i}" class="btn-floating halfway-fab waves-effect waves-light red" onclick="getModal('${friendsData[i].Name}')" style="right:5px;bottom:5px;background-color:lightblue !important"><i class="material-icons">add</i></a>`
+            )
+          );
 
           var friendContentDiv = $('<div class="card-content">');
-          
+
           friendContentDiv.append(
-            $('<span class="card-title activator grey-text text-darken-4">'+friendsData[i].Name+'</span>')
+            $(
+              '<span class="card-title activator grey-text text-darken-4">' +
+                friendsData[i].Name +
+                "</span>"
+            )
           );
 
           var friendRevealDiv = $('<div class="card-reveal">');
           friendRevealDiv.append(
-            $('<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>')
+            $(
+              '<span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>'
+            )
           );
 
-          friendCardDiv.append(friendImgDiv,friendContentDiv,friendRevealDiv);
+          friendCardDiv.append(friendImgDiv, friendContentDiv, friendRevealDiv);
           tableList.append(friendCardDiv);
         }
-
       });
-  }
+    }
 
-  function getModal (name) {
-    console.log(name);
-    $("#modalFriendName").text(name);
-    var instance = M.Modal.getInstance($('#modal2'));
-    instance.open();
-  }
+    function getModal(name) {
+      console.log(name);
+      $("#modalFriendName").text(name);
+      var instance = M.Modal.getInstance($("#modal2"));
+      instance.open();
+    }
 
-  function runMatchQuery() {
-
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/match", method: "GET" })
-      .then(function(matchData) {
-
-        function writeMatchHTML () {
+    function runMatchQuery() {
+      // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+      $.ajax({ url: "/api/match", method: "GET" }).then(function(matchData) {
+        function writeMatchHTML() {
           // Here we then log the waitlistData to console, where it will show up as an object.
           console.log(matchData);
           console.log("------------------------------------");
 
           // Loop through and display each of the customers
 
-            // Get a reference to the waitList element and populate it with tables
-            var matchList = $("#matchList");
-          
-            var matchCardDiv = $('<div class="card medium z-depth-5" style="width:50%;margin:0 auto">');
+          // Get a reference to the waitList element and populate it with tables
+          var matchList = $("#matchList");
 
-            // Then display the fields in the HTML (Section Name, Date, URL)
-            var matchImgDiv = $('<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">');
+          var matchCardDiv = $(
+            '<div class="card medium z-depth-5" style="width:50%;margin:0 auto">'
+          );
 
-            matchImgDiv.append(
-              $('<img class="activator">').attr("src", matchData[0].Pic)
-              );
+          // Then display the fields in the HTML (Section Name, Date, URL)
+          var matchImgDiv = $(
+            '<div class="card-image waves-effect waves-block waves-light" style="max-height: 70%">'
+          );
 
-            var matchContentDiv = $('<div class="card-content" style="max-height: 22%;">');
-            
-            matchContentDiv.append(
-              $('<span class="card-title activator grey-text text-darken-4">'+matchData[0].Name+'<i class="material-icons right">more_vert</i></span>'),
-              $('<p><a href="#">This is a link</a></p>')
-            );
+          matchImgDiv.append(
+            $('<img class="activator">').attr("src", matchData[0].Pic)
+          );
 
-            var matchRevealDiv = $('<div class="card-reveal">');
+          var matchContentDiv = $(
+            '<div class="card-content" style="max-height: 22%;">'
+          );
 
-            matchRevealDiv.append(
-              $('<span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>'),
-              $('<p>'+matchData[0].Answers+'</p>'),
-              $('<p>Compatibilty Score: '+localStorage.getItem("Score")+'</p>')
-            );
+          matchContentDiv.append(
+            $(
+              '<span class="card-title activator grey-text text-darken-4">' +
+                matchData[0].Name +
+                '<i class="material-icons right">more_vert</i></span>'
+            ),
+            $('<p><a href="#">This is a link</a></p>')
+          );
 
-            matchCardDiv.append(matchImgDiv,matchContentDiv,matchRevealDiv);
-            matchList.append($('<h2 class="center">Your Match</h5>'),matchCardDiv);
-              
-          }
+          var matchRevealDiv = $('<div class="card-reveal">');
 
-          matchData[0] ? writeMatchHTML() : null
-        })
-  }
+          matchRevealDiv.append(
+            $(
+              '<span class="card-title grey-text text-darken-4">Answers<i class="material-icons right">close</i></span>'
+            ),
+            $("<p>" + matchData[0].Answers + "</p>"),
+            $(
+              "<p>Compatibilty Score: " + localStorage.getItem("Score") + "</p>"
+            )
+          );
 
-  // This function resets all of the data in our tables. This is intended to let you restart a demo.
-  // function clearTable() {
-  //   alert("Clearing...");
+          matchCardDiv.append(matchImgDiv, matchContentDiv, matchRevealDiv);
+          matchList.append(
+            $('<h2 class="center">Your Match</h5>'),
+            matchCardDiv
+          );
+        }
 
-  //   // Clear the tables on the server and then empty the elements on the client
-  //   $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
-  //     $("#waitList").empty();
-  //     $("#tableList").empty();
-  //   });
-  // }
+        matchData[0] && writeMatchHTML();
+      });
+    }
 
-  // $("#clear").on("click", clearTable);
+    // This function resets all of the data in our tables. This is intended to let you restart a demo.
+    // function clearTable() {
+    //   alert("Clearing...");
 
+    //   // Clear the tables on the server and then empty the elements on the client
+    //   $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+    //     $("#waitList").empty();
+    //     $("#tableList").empty();
+    //   });
+    // }
 
-  // Run Queries!
-  // ==========================================
-  runFriendsQuery();
-  runMatchQuery();
+    // $("#clear").on("click", clearTable);
 
-
-</script>
-
+    // Run Queries!
+    // ==========================================
+    runFriendsQuery();
+    runMatchQuery();
+  </script>
 </html>

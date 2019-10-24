@@ -1,46 +1,54 @@
 input {
   width: 100%;
 }
-output { 
-position: absolute;
-background-image: linear-gradient(top, #444444, #999999);
-width: 18px; 
-height: 30px; 
-text-align: center; 
-color: rgb(73, 54, 54); 
-border-radius: 10px; 
-display: inline-block; 
-font: bold 15px/30px Georgia;
-bottom: 175%;
-left: 0;
-margin-left: -1%;
+output {
+  position: absolute;
+  background-image: linear-gradient(top, #444444, #999999);
+  width: 18px;
+  height: 30px;
+  text-align: center;
+  color: rgb(73, 54, 54);
+  border-radius: 10px;
+  display: inline-block;
+  font: bold 15px/30px Georgia;
+  bottom: -65%;
+  left: 0;
+  margin-left: -1%;
 }
 
-output:after { 
-content: "";
-position: absolute;
-width: 0;
-height: 0;
-border-top: 10px solid #999999;
-border-left: 5px solid transparent;
-border-right: 5px solid transparent;
-top: 100%;
-left: 50%;
-margin-left: -5px;
-margin-top: -1px;
-}
+/* output:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #999999;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+} */
 
 #tableList {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.friendCard {
+  min-width: 165px;
+  max-width: min-content;
+  float: left;
+  margin: 8px;
+  text-align: center;
+}
 .friendCard:hover {
   box-shadow: 0px 0px 10px 6px;
 }
 
 @media screen and (max-width: 568px) {
-  #tableList .card{
+  #tableList .card {
     min-width: 285px !important;
   }
 }
