@@ -23,8 +23,6 @@ module.exports = function (app) {
   app.set('view engine', 'handlebars');
 
   app.get('/friends', function (req, res) {
-    const clientIp = requestIp.getClientIp(req);
-    console.log(clientIp);
     res.sendFile(path.join(__dirname, '../public/friends.html'));
   });
 
