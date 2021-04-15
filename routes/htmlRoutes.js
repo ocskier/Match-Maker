@@ -29,7 +29,10 @@ module.exports = function (app) {
   app.get('/questions', function (req, res) {
     res.render('questions', { quests });
   });
-
+  // If no matching route is found default to home
+  app.get('/', function (req, res) {
+    res.render('index', quests);
+  });
   // If no matching route is found default to home
   app.get('*', function (req, res) {
     res.render('index', quests);
