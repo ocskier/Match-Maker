@@ -4,7 +4,7 @@
 // ==============================================================================
 
 var express = require('express');
-import morgan from 'morgan';
+var morgan = require('morgan');
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
