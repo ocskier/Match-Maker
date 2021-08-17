@@ -36,7 +36,7 @@ npm run test
 
 ## Deployment
 
-[Live Site](https://my-match-maker.herokuapp.com/)
+[Live Site](https://matchmaker-azure.azurewebsites.net/)
 
 ## Authors
 
