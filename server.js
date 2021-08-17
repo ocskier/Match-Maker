@@ -4,7 +4,7 @@
 // ==============================================================================
 
 var express = require('express');
-
+import morgan from 'morgan';
 // ==============================================================================
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
@@ -15,6 +15,16 @@ var app = express();
 
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 8080;
+
+app.use(
+  morgan((tokens, req, res) => {
+    return [
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+    ].join(' ');
+  })
+);
 
 app.use(express.static('public'));
 
